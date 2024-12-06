@@ -11,6 +11,7 @@
 * Why does Array.push return a number rather than itself? Is there not a way to push directly inside a `return`?
 * Where is Array.zip? Is it still [a proposal](https://tc39.es/proposal-joint-iteration/#sec-iterator.zip)?
 * Also had to implement freq() that turns an array into the Map of its values and associated frequencies.
+* I can't find a [pipe operator](https://github.com/tc39/proposal-pipeline-operator) so even in FP style the code is nested in parenthesis and the logic reads in reverse.
 
 ## Approach
 
