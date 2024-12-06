@@ -2,9 +2,9 @@ import { freq, load_sample, zip } from "./utils.ts";
 
 export function solve_a(sample: string) {
   const arrays = process(sample);
-
   const zipped = zip(arrays[0], arrays[1]);
-  const res = zipped
+
+  return zipped
     .reduce(
       (acc, line) => {
         const dist = Math.abs(line[0] - line[1]);
@@ -13,39 +13,28 @@ export function solve_a(sample: string) {
       },
       [] as number[],
     )
-    .reduce((acc, dist) => {
-      return acc + dist;
-    }, 0);
-
-  return res;
+    .reduce((acc, dist) => acc + dist, 0);
 }
 
 export function solve_b(sample: string) {
   const arrays = process(sample);
   const freqs = freq(arrays[1]);
 
-  const res = arrays[0]
-    .map((n) => {
-      const mult = freqs.get(n.toString()) ?? 0;
-      return n * mult;
-    })
-  .reduce((acc, dist) => {
-    return acc + dist;
-  }, 0);
-
-  return res;
+  return arrays[0]
+    .map((n) => (freqs.get(n.toString()) ?? 0) * n)
+    .reduce((acc, dist) => acc + dist, 0);
 }
 
 function process(sample: string) {
   const input = load_sample(sample);
 
-  const arrays = input
+  return input
     .split("\n")
     .map((s) => s.split("   "))
     .reduce(
-      ([a, b], line) => {
-        a.push(line[0]);
-        b.push(line[1]);
+      ([a, b], [la, lb]) => {
+        a.push(la);
+        b.push(lb);
         return [a, b];
       },
       [
@@ -55,8 +44,6 @@ function process(sample: string) {
     )
     .map((arr) => arr.map(Number))
     .map((arr) => arr.sort());
-
-  return arrays;
 }
 
 console.log(solve_a("1"));
