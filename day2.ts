@@ -9,7 +9,16 @@ export function solve_a(sample: string) {
 }
 
 export function solve_b(sample: string) {
-  return 1;
+  return process(sample)
+    .map(levels_with_tolerance)
+    .map((arr) =>
+      arr
+        .map(deltas)
+        .map(safe_deltas)
+        .some((n) => n == true)
+    )
+    .filter((n) => n == true)
+    .length;
 }
 
 function process(sample: string) {
@@ -22,12 +31,15 @@ function process(sample: string) {
     );
 }
 
+function levels_with_tolerance(array: number[]) {
+  const res = [] as number[][];
+  array.forEach((_val, i) => res.push(array.toSpliced(i, 1)));
+  return res;
+}
+
 function deltas(array: number[]) {
   return zip(array.slice(0, array.length - 1), array.slice(1, array.length))
-    .map((el) => {
-      const [l, r] = el;
-      return r - l;
-    });
+    .map(([l, r]) => r - l);
 }
 
 function safe_deltas(array: number[]) {

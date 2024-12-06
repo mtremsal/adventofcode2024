@@ -12,6 +12,8 @@
 * Where is Array.zip? Is it still [a proposal](https://tc39.es/proposal-joint-iteration/#sec-iterator.zip)?
 * Also had to implement freq() that turns an array into the Map of its values and associated frequencies.
 * I can't find a [pipe operator](https://github.com/tc39/proposal-pipeline-operator) so even in FP style the code is nested in parenthesis and the logic reads in reverse.
+* Is there no way to generate an array with forEach without "pushing"? Why is the output of forEach not itself an array?
+* Is there a `isTrue` predicate? What's a better way than writing `booleanArray.some(b => b == true)`?
 
 ## Approach
 
