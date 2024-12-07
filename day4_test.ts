@@ -5,6 +5,6 @@ Deno.test(function addTest() {
   assertEquals(solve_a("4a_sample"), 18);
 });
 
-// Deno.test(function addTest() {
-//     assertEquals(solve_b("4b_sample"), 6);
-//   });
+Deno.test(function addTest() {
+    assertEquals(solve_b("4a_sample"), 9);
+  });

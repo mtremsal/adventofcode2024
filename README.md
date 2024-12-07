@@ -14,6 +14,7 @@
 * I can't find a [pipe operator](https://github.com/tc39/proposal-pipeline-operator) so even in FP style the code is nested in parenthesis and the logic reads in reverse.
 * Is there no way to generate an array with forEach without "pushing"? Why is the output of forEach not itself an array?
 * Is there a `isTrue` predicate? What's a better way than writing `booleanArray.some(b => b == true)`?
+* Is there no sinmple way to declare and assign multiple variables at once unless I write something like `let [a, b, c] = Array(3).fill('foo')`?
 
 ## Approach
 
